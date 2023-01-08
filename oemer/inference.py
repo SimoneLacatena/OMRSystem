@@ -87,10 +87,7 @@ def inference(model_path, img_path, step_size=128, batch_size=16, manual_th=None
             mask[y:y+win_size, x:x+win_size] += 1
             hop_idx += 1
     
-    print(out)
     out /= mask
-    print(out)
-    os.exit()
     
     if manual_th is None:
         class_map = np.argmax(out, axis=-1)
