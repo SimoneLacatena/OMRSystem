@@ -1,0 +1,11 @@
+__pycache__/
+.git/
+.venv/
+build/
+dist/
+oemer.egg-info/
+checkpoints/
+dataset/
+*.model
+*.musicxml
+*.mp3
