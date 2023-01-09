@@ -104,7 +104,9 @@ def inference(model_path, img_path, step_size=128, batch_size=16, manual_th=None
 def predict(region, model_name):
     if np.max(region) == 1:
         region *= 255
-    m_info = pickle.load(open(os.path.join(MODULE_PATH, f"tf_models/{model_name}.model"), "rb"))
+    #m_info = pickle.load(open(os.path.join(MODULE_PATH, f"tf_models/{model_name}.model"), "rb"))
+    m_info = pickle.load(f"oemer/tf_models/{model_name}.model", "rb")
+
     model = m_info['model']
     w = m_info['w']
     h = m_info['h']
