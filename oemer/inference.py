@@ -110,6 +110,7 @@ def predict(region, model_name):
     model = m_info['model']
     w = m_info['w']
     h = m_info['h']
+    print(f'shape {w},{h}')
     region = Image.fromarray(region.astype(np.uint8)).resize((w, h))
     #pred = model.predict(np.array(region).reshape(1, -1))
     pred = model.predict(np.array(region))
