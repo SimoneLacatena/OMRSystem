@@ -1,7 +1,7 @@
 import os
 import pickle
 from PIL import Image
-
+import tensorflow as tf
 import cv2
 import numpy as np
 
@@ -111,9 +111,18 @@ def predict(region, model_name):
     w = m_info['w']
     h = m_info['h']
     print(f'shape {w},{h}')
+
+
+
     region = Image.fromarray(region.astype(np.uint8)).resize((w, h))
+    # convert to rgb
+
+    gray_x = gray_x.reshape((region.shape[0],region.shape[1],1))
+
+    rgb_region = np.array(tf.image.grayscale_to_rgb(tf.constant(gray_x)))
+
     #pred = model.predict(np.array(region).reshape(1, -1))
-    pred = model.predict(np.array(region))
+    pred = model.predict(rgb_region)
     return m_info['class_map'][pred[0]]
 
 
