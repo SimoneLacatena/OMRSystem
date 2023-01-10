@@ -128,7 +128,7 @@ def predict(region, model_name):
 
     print(f'class maps {class_map}')
 
-    return m_info['class_map'][pred[0]]
+    return m_info['class_map'][np.argmax(pred[0])]
 
 
 if __name__ == "__main__":
