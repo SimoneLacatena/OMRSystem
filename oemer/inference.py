@@ -110,7 +110,7 @@ def predict(region, model_name):
     model = m_info['model']
     w = m_info['w']
     h = m_info['h']
-    print(f'shape {w},{h}')
+    
 
 
 
@@ -119,8 +119,8 @@ def predict(region, model_name):
 
     gray_x = region.reshape((region.shape[0],region.shape[1],1))
 
-    rgb_region = np.array(tf.image.grayscale_to_rgb(tf.constant(gray_x)))
-
+    rgb_region = np.array([np.array(tf.image.grayscale_to_rgb(tf.constant(gray_x)))])
+    print(f'input shape {rgb_region.shape}')
     #pred = model.predict(np.array(region).reshape(1, -1))
     pred = model.predict(rgb_region)
     return m_info['class_map'][pred[0]]
