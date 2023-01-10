@@ -111,7 +111,8 @@ def predict(region, model_name):
     w = m_info['w']
     h = m_info['h']
     region = Image.fromarray(region.astype(np.uint8)).resize((w, h))
-    pred = model.predict(np.array(region).reshape(1, -1))
+    #pred = model.predict(np.array(region).reshape(1, -1))
+    pred = model.predict(np.array(region))
     return m_info['class_map'][pred[0]]
 
 
