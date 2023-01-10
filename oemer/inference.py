@@ -123,6 +123,10 @@ def predict(region, model_name):
     print(f'input shape {rgb_region.shape}')
     #pred = model.predict(np.array(region).reshape(1, -1))
     pred = model.predict(rgb_region)
+    
+    print(f'pred {pred}')
+    print(f'class maps {m_info['class_map']}')
+
     return m_info['class_map'][pred[0]]
 
 
