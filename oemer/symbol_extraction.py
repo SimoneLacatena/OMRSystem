@@ -346,7 +346,10 @@ def gen_clefs(bboxes, labels):
         st1, _ = find_closest_staffs(*get_center(box))
         cc = Clef()
         cc.bbox = box
-        cc.label = name_type_map[label]
+        try:
+            cc.label = name_type_map[label]
+        except KeyError:
+            cc.label = name_type_map['gclef']
         cc.track = st1.track
         cc.group = st1.group
         clefs.append(cc)
@@ -378,7 +381,11 @@ def gen_sfns(bboxes, labels):
         st1, _ = find_closest_staffs(*get_center(box))
         ss = Sfn()
         ss.bbox = box
-        ss.label = name_type_map[label]
+        try:
+            ss.label = name_type_map[label]
+        except KeyError:
+            ss.label = name_type_map['natural']
+        
         ss.note_id = get_nearby_note_id(box, note_id_map)
         ss.track = st1.track
         ss.group = st1.group
@@ -412,7 +419,11 @@ def gen_rests(bboxes, labels):
         st1, _ = find_closest_staffs(*get_center(box))
         rr = Rest()
         rr.bbox = box
-        rr.label = name_type_map[label]
+        try:
+            rr.label = name_type_map[label]
+        except KeyError:
+             rr.label = name_type_map['rest_whole']
+        
         rr.track = st1.track
         rr.group = st1.group
 
