@@ -114,7 +114,7 @@ def predict(region, model_name):
 
 
 
-    region = Image.fromarray(region.astype(np.uint8)).resize((w, h))
+    region = np.array(Image.fromarray(region.astype(np.uint8)).resize((w, h)))
     # convert to rgb
 
     gray_x = region.reshape((region.shape[0],region.shape[1],1))
