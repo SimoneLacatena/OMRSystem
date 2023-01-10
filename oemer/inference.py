@@ -120,13 +120,13 @@ def predict(region, model_name):
     gray_x = region.reshape((region.shape[0],region.shape[1],1))
 
     rgb_region = np.array([np.array(tf.image.grayscale_to_rgb(tf.constant(gray_x)))])
-    print(f'input shape {rgb_region.shape}')
+    #print(f'input shape {rgb_region.shape}')
     #pred = model.predict(np.array(region).reshape(1, -1))
     pred = model.predict(rgb_region)
 
-    print(f'pred {pred}')
+    #print(f'pred {pred}')
 
-    print(f'class maps {class_map}')
+    #print(f'class maps {class_map}')
 
     return m_info['class_map'][np.argmax(pred[0])]
 
