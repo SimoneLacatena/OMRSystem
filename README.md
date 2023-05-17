@@ -1,20 +1,10 @@
 # Oemer (End-to-end OMR)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BreezeWhite/oemer/blob/main/colab.ipynb)
-[![PyPI version](https://badge.fury.io/py/oemer.svg)](https://badge.fury.io/py/oemer)
-![PyPI - License](https://img.shields.io/github/license/BreezeWhite/oemer)
-[![Downloads](https://img.shields.io/pypi/dm/oemer?color=orange)](https://pypistats.org/packages/oemer)
-[![DOI](https://zenodo.org/badge/431709885.svg)](https://zenodo.org/badge/latestdoi/431709885)
-
-
 
 End-to-end Optical Music Recognition system build on top of deep learning models and machine learning techniques.
 Able to transcribe on skewed and phone taken photos. The models were trained to identify *Western Music Notation*, which could mean the system will probably not work on transcribing hand-written scores or other notation types.
 
 
-![](figures/tabi_mix.jpg)
-
-https://user-images.githubusercontent.com/24308057/136168551-2e705c2d-8cf5-4063-826f-0e179f54c772.mp4
 
 ## Quick Start
 ``` bash
