@@ -131,11 +131,6 @@ Stafflines are processed part-by-part horizontally, as shown below:
 
 For each part, the algorithm finds the lines by accumulating positive pixels by rows.
 After summarizing the amounts for each row, we get the following statistics:
-
-<p align='center'>
-    <img width="50%" src="figures/staffline_peaks.png">
-</p>
-
 The algorithm then picks all the peaks and applies additional rules to filter out false positive peaks.
 The final picked true positive peaks (stafflines) are marked with red dots.
 
@@ -167,10 +162,6 @@ Staff(
 The next step is to extract noteheads, which is the second important information to be parsed.
 
 Steps to extract noteheads are breifly illustrated in the following figure:
-
-<p align='center'>
-    <img width="100%" src="figures/notehead.png">
-</p>
 
 
 One of the output channel of the second model predicts the noteheads map, as can be seen in the
@@ -282,10 +273,6 @@ with real lengths. By overlapping the two different information, the algorithm c
 most of non-barline objects in the prediction map. Further extraction applies additional rules to
 estimate barlines. The result can be seen as follow:
 
-<p align='center'>
-    <img width="80%" src="figures/barlines.png">
-</p>
-
 And the representation of a barline instance:
 ``` bash
 # Example instance of oemer.symbol_extraction.Barline
@@ -302,9 +289,6 @@ steps, the rest symbols should be 'rests'. List of rules are also applied to
 filter the symbols. The recognition of the rest types are done by using trained SVM model.
 As a result, above process outputs the following result:
 
-<p align='center'>
-    <img width="80%" src="figures/rests.png">
-</p>
 
 Representation of the rest instance:
 ``` bash
@@ -328,10 +312,6 @@ morphs the map first. After amplifying the dot information, the algorithm scans 
 nearby every detected noteheads, calculate the ratio of positive samples to the region, and
 determine whether there is a dot by a given certain threshold.
 
-<p align='center'>
-    <img width="80%" src="figures/dots.png">
-</p>
-
 Here comes the most difficult and critical part amongst all steps, since rhythm hugely
 influence the listening experience.
 Few steps are included to extract beams/flags:
@@ -341,10 +321,6 @@ Few steps are included to extract beams/flags:
 - Assign rhythm types to note groups and **update the note grouping** when neccessary.
 
 Brief summary of these steps are illustrated as below:
-
-<p align='center'>
-    <img width="80%" src="figures/rhythm.png">
-</p>
 
 The first step is, as mentioned before, to distill beams/flags from all the symbols predicted
 by model one. By subtracting with the second model's output, and apply some simple filtering rules,
